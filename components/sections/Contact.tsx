@@ -4,7 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Github, Linkedin, Twitter, Mail, MapPin, CheckCircle2, AlertCircle } from "lucide-react";
 import type { Profile } from "@/lib/data";
-import { SectionHeading } from "./About";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/SectionHeading";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -30,11 +31,11 @@ export default function Contact({ profile }: { profile: Profile }) {
   }
 
   return (
-    <section id="contact" className="px-6 py-24 bg-bg-soft">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading number="06" title="Get In Touch" subtitle="Have a project in mind? Let's talk." />
+    <section id="contact" className="px-6 py-20 md:py-28 bg-bg-soft">
+      <Container>
+        <SectionHeading number="06 — Contact" title="Get In Touch" subtitle="Have a project in mind? Let's talk." />
 
-        <div className="grid md:grid-cols-5 gap-8 mt-10">
+        <div className="grid md:grid-cols-5 gap-8 mt-12">
           {/* Info */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -76,7 +77,7 @@ export default function Contact({ profile }: { profile: Profile }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="md:col-span-3 bg-white border border-bg-border rounded-xl p-6 space-y-4"
+            className="md:col-span-3 bg-white border border-bg-border rounded-2xl p-6 space-y-4"
           >
             <Field
               label="Name"
@@ -122,7 +123,7 @@ export default function Contact({ profile }: { profile: Profile }) {
             )}
           </motion.form>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
@@ -172,15 +173,7 @@ function Field({
   );
 }
 
-function SocialLink({
-  href,
-  icon,
-  label,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  label: string;
-}) {
+function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
   return (
     <a
       href={href}

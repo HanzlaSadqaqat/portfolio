@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import type { Profile } from "@/lib/data";
+import Container from "@/components/ui/Container";
 
 const sections = [
   { label: "About", href: "#about" },
@@ -10,7 +11,6 @@ const sections = [
   { label: "Automations", href: "#automations" },
   { label: "Blog", href: "#blog" },
   { label: "Resume", href: "#resume" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar({ profile }: { profile: Profile }) {
@@ -27,13 +27,10 @@ export default function Navbar({ profile }: { profile: Profile }) {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-bg-line"
-          : "bg-transparent"
+        scrolled ? "bg-white/90 backdrop-blur-md border-b border-bg-line" : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
+      <Container className="py-4 flex items-center justify-between">
         <a href="#top" className="text-text-primary font-semibold text-lg">
           {profile.name}
         </a>
@@ -51,6 +48,13 @@ export default function Navbar({ profile }: { profile: Profile }) {
           ))}
         </div>
 
+        <a
+          href="#contact"
+          className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 bg-accent-primary text-white text-sm font-medium rounded-full hover:bg-accent-primary/90 transition"
+        >
+          Let&apos;s Talk <ArrowRight size={14} />
+        </a>
+
         {/* Mobile toggle */}
         <button
           className="md:hidden text-text-secondary"
@@ -59,7 +63,7 @@ export default function Navbar({ profile }: { profile: Profile }) {
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
-      </div>
+      </Container>
 
       {/* Mobile drawer */}
       {open && (
@@ -75,6 +79,13 @@ export default function Navbar({ profile }: { profile: Profile }) {
                 {s.label}
               </a>
             ))}
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-primary text-white font-medium rounded-full mt-1"
+            >
+              Let&apos;s Talk <ArrowRight size={14} />
+            </a>
           </div>
         </div>
       )}

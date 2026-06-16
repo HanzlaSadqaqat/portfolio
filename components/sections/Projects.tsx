@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 import type { Project } from "@/lib/data";
-import { SectionHeading } from "./About";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/SectionHeading";
 
 const statusStyles: Record<string, string> = {
   live: "bg-accent-green/10 text-accent-green",
@@ -13,11 +14,15 @@ const statusStyles: Record<string, string> = {
 
 export default function Projects({ projects }: { projects: Project[] }) {
   return (
-    <section id="projects" className="px-6 py-24 bg-bg-soft">
-      <div className="max-w-6xl mx-auto">
-        <SectionHeading number="02" title="Projects" subtitle="A selection of things I've built recently." />
+    <section id="projects" className="px-6 py-20 md:py-28 bg-bg-soft">
+      <Container>
+        <SectionHeading
+          number="02 — Work"
+          title="Projects"
+          subtitle="A selection of things I've built recently."
+        />
 
-        <div className="grid md:grid-cols-2 gap-5 mt-10">
+        <div className="grid md:grid-cols-2 gap-5 mt-12">
           {projects.map((project, i) => (
             <motion.div
               key={project.name}
@@ -25,9 +30,8 @@ export default function Projects({ projects }: { projects: Project[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-white border border-bg-border rounded-xl overflow-hidden card-hover group"
+              className="bg-white border border-bg-border rounded-2xl overflow-hidden card-hover group"
             >
-              {/* Header */}
               <div className="px-5 py-4 border-b border-bg-line flex items-center justify-between">
                 <span className="font-semibold text-text-primary group-hover:text-accent-primary transition-colors">
                   {project.name}
@@ -37,7 +41,6 @@ export default function Projects({ projects }: { projects: Project[] }) {
                 </span>
               </div>
 
-              {/* Body */}
               <div className="p-5">
                 <p className="text-text-secondary text-sm leading-relaxed mb-4 min-h-[3.5rem]">
                   {project.description}
@@ -80,7 +83,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
             </motion.div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

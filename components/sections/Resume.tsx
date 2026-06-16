@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { Download, Briefcase, GraduationCap } from "lucide-react";
 import type { Experience, Education, Profile } from "@/lib/data";
-import { SectionHeading } from "./About";
+import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function Resume({
   experience,
@@ -15,10 +16,10 @@ export default function Resume({
   profile: Profile;
 }) {
   return (
-    <section id="resume" className="px-6 py-24">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
-          <SectionHeading number="05" title="Resume" subtitle="My experience and education." />
+    <section id="resume" className="px-6 py-20 md:py-28">
+      <Container>
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-12">
+          <SectionHeading number="05 — Career" title="Resume" subtitle="My experience and education." />
           <motion.a
             href={profile.resumeUrl}
             download
@@ -49,14 +50,10 @@ export default function Resume({
               >
                 <span className="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-accent-primary" />
                 <div className="flex items-baseline justify-between flex-wrap gap-2 mb-1">
-                  <h3 className="text-base md:text-lg font-semibold text-text-primary">
-                    {job.role}
-                  </h3>
+                  <h3 className="text-base md:text-lg font-semibold text-text-primary">{job.role}</h3>
                   <span className="text-xs text-text-dim">{job.period}</span>
                 </div>
-                <div className="text-sm text-accent-primary font-medium mb-3">
-                  {job.company}
-                </div>
+                <div className="text-sm text-accent-primary font-medium mb-3">{job.company}</div>
                 <ul className="space-y-1.5">
                   {job.bullets.map((b, bi) => (
                     <li key={bi} className="text-text-secondary text-sm flex gap-2 leading-relaxed">
@@ -84,20 +81,16 @@ export default function Resume({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="p-5 bg-bg-soft border border-bg-border rounded-xl"
+                className="p-5 bg-bg-soft border border-bg-border rounded-2xl"
               >
-                <h3 className="text-base font-semibold text-text-primary mb-1">
-                  {edu.degree}
-                </h3>
-                <div className="text-sm text-accent-primary mb-1">
-                  {edu.school}
-                </div>
+                <h3 className="text-base font-semibold text-text-primary mb-1">{edu.degree}</h3>
+                <div className="text-sm text-accent-primary mb-1">{edu.school}</div>
                 <div className="text-xs text-text-dim">{edu.period}</div>
               </motion.div>
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

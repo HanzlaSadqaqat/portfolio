@@ -1,12 +1,13 @@
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Automations from "@/components/Automations";
-import Blog from "@/components/Blog";
-import Resume from "@/components/Resume";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import Projects from "@/components/sections/Projects";
+import Automations from "@/components/sections/Automations";
+import Blog from "@/components/sections/Blog";
+import Resume from "@/components/sections/Resume";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
+import type { SkillGroup } from "@/lib/data";
 import {
   getProfile,
   getAbout,
@@ -34,10 +35,18 @@ export default async function Home() {
       getEducation(),
     ]);
 
+  const totalTech = skills.reduce((acc: number, s: SkillGroup) => acc + s.items.length, 0);
+  const stats = [
+    { label: "Projects Shipped", value: `${projects.length}+` },
+    { label: "AI Automations", value: `${automations.length}+` },
+    { label: "Technologies", value: `${totalTech}+` },
+    { label: "Blog Posts", value: `${blogPosts.length}+` },
+  ];
+
   return (
-    <main className="min-h-screen bg-bg text-text-primary">
+    <main className="min-h-screen bg-white text-text-primary">
       <Navbar profile={profile} />
-      <Hero profile={profile} />
+      <Hero profile={profile} stats={stats} />
       <About about={about} skills={skills} profile={profile} />
       <Projects projects={projects} />
       <Automations automations={automations} />

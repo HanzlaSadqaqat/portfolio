@@ -1,0 +1,106 @@
+"use client";
+
+import { motion } from "framer-motion";
+import type { About as AboutData, SkillGroup, Profile } from "@/lib/data";
+
+export default function About({
+  about,
+  skills,
+  profile,
+}: {
+  about: AboutData;
+  skills: SkillGroup[];
+  profile: Profile;
+}) {
+  return (
+    <section id="about" className="px-6 py-24">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeading number="01" title="About Me" subtitle="A bit about who I am and what I do." />
+
+        <div className="grid md:grid-cols-5 gap-8 mt-10">
+          {/* Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+            className="md:col-span-3 bg-bg-soft border border-bg-border rounded-xl p-6 md:p-7"
+          >
+            {about.intro.map((p, i) => (
+              <p key={i} className="text-text-secondary leading-relaxed mb-4">
+                {p}
+              </p>
+            ))}
+            <div className="text-text-primary font-semibold mt-6 mb-3">Highlights</div>
+            <ul className="space-y-2">
+              {about.highlights.map((h, i) => (
+                <li key={i} className="text-text-secondary flex gap-2">
+                  <span className="text-accent-primary mt-0.5">•</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 pt-5 border-t border-bg-line text-text-secondary text-sm">
+              <span className="text-text-primary font-medium">{profile.location}</span> · open to remote
+            </div>
+          </motion.div>
+
+          {/* Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="md:col-span-2 space-y-4"
+          >
+            {skills.map((group) => (
+              <div
+                key={group.category}
+                className="bg-white border border-bg-border rounded-xl p-4"
+              >
+                <div className="text-sm font-semibold text-text-primary mb-3">
+                  {group.category}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="text-xs px-2.5 py-1 bg-bg-soft border border-bg-border rounded-full text-text-secondary hover:border-accent-primary hover:text-accent-primary transition cursor-default"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function SectionHeading({
+  number,
+  title,
+  subtitle,
+}: {
+  number: string;
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="text-xs font-semibold text-accent-primary tracking-wide mb-2">
+        {number}
+      </div>
+      <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-2">{title}</h2>
+      <p className="text-text-secondary text-sm md:text-base">{subtitle}</p>
+    </motion.div>
+  );
+}

@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  background: #ffffff;
+  color: #0f172a;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #ffffff; }
+::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+
+/* Selection */
+::selection { background: rgba(37, 99, 235, 0.15); color: #0f172a; }
+
+/* Link hover underline animation */
+.link-hover {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #2563eb;
+  transition: width 0.2s ease;
+}
+.link-hover:hover { color: #2563eb; }
+.link-hover:hover::after { width: 100%; }
+
+/* Card hover */
+.card-hover {
+  transition: all 0.25s ease;
+}
+.card-hover:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 80px; }

@@ -1,0 +1,83 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import type { Profile } from "@/lib/data";
+
+const sections = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Automations", href: "#automations" },
+  { label: "Blog", href: "#blog" },
+  { label: "Resume", href: "#resume" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function Navbar({ profile }: { profile: Profile }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-md border-b border-bg-line"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <a href="#top" className="text-text-primary font-semibold text-lg">
+          {profile.name}
+        </a>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-7 text-sm">
+          {sections.map((s) => (
+            <a
+              key={s.href}
+              href={s.href}
+              className="text-text-secondary hover:text-accent-primary transition-colors"
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-text-secondary"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {/* Mobile drawer */}
+      {open && (
+        <div className="md:hidden border-t border-bg-line bg-white/95 backdrop-blur-md">
+          <div className="px-6 py-4 flex flex-col gap-3 text-sm">
+            {sections.map((s) => (
+              <a
+                key={s.href}
+                href={s.href}
+                onClick={() => setOpen(false)}
+                className="text-text-secondary hover:text-accent-primary transition-colors py-1"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}

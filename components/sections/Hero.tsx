@@ -67,13 +67,13 @@ export default function Hero({ profile, stats }: { profile: Profile; stats: Stat
             </a>
             <a
               href={profile.resumeUrl}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-bg-border text-text-secondary rounded-full font-medium hover:border-accent-primary hover:text-accent-primary transition"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-bg-card border border-bg-border text-text-secondary rounded-full font-medium hover:border-accent-primary hover:text-accent-primary transition"
             >
               Download CV <Download size={14} />
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-bg-border text-text-secondary rounded-full font-medium hover:border-accent-primary hover:text-accent-primary transition"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-bg-card border border-bg-border text-text-secondary rounded-full font-medium hover:border-accent-primary hover:text-accent-primary transition"
             >
               Contact Me <Mail size={14} />
             </a>

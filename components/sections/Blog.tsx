@@ -21,7 +21,7 @@ export default function Blog({ blogPosts }: { blogPosts: BlogPost[] }) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group flex items-start gap-4 p-5 bg-white border border-bg-border rounded-2xl card-hover"
+              className="group flex items-start gap-4 p-5 bg-bg-card border border-bg-border rounded-2xl card-hover"
             >
               <div className="text-xs text-text-dim pt-1 shrink-0 hidden sm:block w-24">
                 {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}

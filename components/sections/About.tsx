@@ -58,7 +58,7 @@ export default function About({
             className="md:col-span-2 space-y-4"
           >
             {skills.map((group) => (
-              <div key={group.category} className="bg-white border border-bg-border rounded-2xl p-4">
+              <div key={group.category} className="bg-bg-card border border-bg-border rounded-2xl p-4">
                 <div className="text-sm font-semibold text-text-primary mb-3">{group.category}</div>
                 <div className="flex flex-wrap gap-1.5">
                   {group.items.map((item) => (

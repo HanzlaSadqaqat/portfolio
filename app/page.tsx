@@ -23,19 +23,30 @@ import {
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const [profile, about, skills, projects, automations, blogPosts, experience, education] =
-    await Promise.all([
-      getProfile(),
-      getAbout(),
-      getSkills(),
-      getProjects(),
-      getAutomations(),
-      getBlogPosts(),
-      getExperience(),
-      getEducation(),
-    ]);
+  const [
+    profile,
+    about,
+    skills,
+    projects,
+    automations,
+    blogPosts,
+    experience,
+    education,
+  ] = await Promise.all([
+    getProfile(),
+    getAbout(),
+    getSkills(),
+    getProjects(),
+    getAutomations(),
+    getBlogPosts(),
+    getExperience(),
+    getEducation(),
+  ]);
 
-  const totalTech = skills.reduce((acc: number, s: SkillGroup) => acc + s.items.length, 0);
+  const totalTech = skills.reduce(
+    (acc: number, s: SkillGroup) => acc + s.items.length,
+    0,
+  );
   const stats = [
     { label: "Projects Shipped", value: `${projects.length}+` },
     { label: "AI Automations", value: `${automations.length}+` },
@@ -44,7 +55,7 @@ export default async function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white text-text-primary">
+    <main className="min-h-screen bg-bg text-text-primary">
       <Navbar profile={profile} />
       <Hero profile={profile} stats={stats} />
       <About about={about} skills={skills} profile={profile} />

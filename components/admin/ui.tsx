@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 
 export function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`bg-white border border-bg-border rounded-xl p-5 md:p-6 ${className}`}>
+    <div className={`bg-bg-card border border-bg-border rounded-xl p-5 md:p-6 ${className}`}>
       {children}
     </div>
   );
@@ -69,7 +69,7 @@ export function Button({
   const styles: Record<string, string> = {
     primary: "bg-accent-primary border-accent-primary text-white hover:bg-accent-primary/90",
     secondary:
-      "bg-white border-bg-border text-text-secondary hover:border-accent-primary hover:text-accent-primary",
+      "bg-bg-card border-bg-border text-text-secondary hover:border-accent-primary hover:text-accent-primary",
     danger:
       "bg-accent-red/10 border-accent-red/30 text-accent-red hover:bg-accent-red/20",
   };

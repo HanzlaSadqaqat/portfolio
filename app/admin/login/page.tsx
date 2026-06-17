@@ -37,7 +37,7 @@ function LoginForm() {
   return (
     <div className="min-h-screen bg-bg-soft text-text-primary flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        <div className="bg-white border border-bg-border rounded-xl p-6 shadow-sm">
+        <div className="bg-bg-card border border-bg-border rounded-xl p-6 shadow-sm">
           <div className="flex items-center gap-2 mb-6 text-text-primary font-semibold">
             <Lock size={16} className="text-accent-primary" />
             <span>Admin Login</span>

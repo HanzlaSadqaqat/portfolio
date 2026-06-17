@@ -4,25 +4,51 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Light theme (default) */
 :root {
   color-scheme: light;
+  --bg: 255 255 255;
+  --bg-soft: 248 250 252;
+  --bg-card: 255 255 255;
+  --bg-line: 229 231 235;
+  --bg-border: 226 232 240;
+  --text-primary: 15 23 42;
+  --text-secondary: 71 85 105;
+  --text-muted: 100 116 139;
+  --text-dim: 148 163 184;
+  --accent-primary: 37 99 235;
+}
+
+/* Dark theme */
+.dark {
+  color-scheme: dark;
+  --bg: 10 15 28;
+  --bg-soft: 17 24 39;
+  --bg-card: 17 24 39;
+  --bg-line: 55 65 81;
+  --bg-border: 55 65 81;
+  --text-primary: 241 245 249;
+  --text-secondary: 148 163 184;
+  --text-muted: 100 116 139;
+  --text-dim: 71 85 105;
+  --accent-primary: 59 130 246;
 }
 
 html, body {
-  background: #ffffff;
-  color: #0f172a;
+  background: rgb(var(--bg));
+  color: rgb(var(--text-primary));
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #ffffff; }
-::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+::-webkit-scrollbar-track { background: rgb(var(--bg)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--bg-border)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--bg-line)); }
 
 /* Selection */
-::selection { background: rgba(37, 99, 235, 0.15); color: #0f172a; }
+::selection { background: rgba(37, 99, 235, 0.15); color: rgb(var(--text-primary)); }
 
 /* Link hover underline animation */
 .link-hover {
@@ -36,10 +62,10 @@ html, body {
   left: 0;
   width: 0;
   height: 1px;
-  background: #2563eb;
+  background: rgb(var(--accent-primary));
   transition: width 0.2s ease;
 }
-.link-hover:hover { color: #2563eb; }
+.link-hover:hover { color: rgb(var(--accent-primary)); }
 .link-hover:hover::after { width: 100%; }
 
 /* Card hover */
@@ -47,8 +73,8 @@ html, body {
   transition: all 0.25s ease;
 }
 .card-hover:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  border-color: rgb(var(--bg-border));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 

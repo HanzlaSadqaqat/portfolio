@@ -77,7 +77,7 @@ export default function Contact({ profile }: { profile: Profile }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="md:col-span-3 bg-white border border-bg-border rounded-2xl p-6 space-y-4"
+            className="md:col-span-3 bg-bg-card border border-bg-border rounded-2xl p-6 space-y-4"
           >
             <Field
               label="Name"
@@ -179,7 +179,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-3 py-2 bg-white border border-bg-border rounded-full text-xs text-text-secondary hover:border-accent-primary hover:text-accent-primary transition"
+      className="inline-flex items-center gap-2 px-3 py-2 bg-bg-card border border-bg-border rounded-full text-xs text-text-secondary hover:border-accent-primary hover:text-accent-primary transition"
     >
       {icon} {label}
     </a>

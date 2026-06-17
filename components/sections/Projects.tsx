@@ -30,7 +30,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-white border border-bg-border rounded-2xl overflow-hidden card-hover group"
+              className="bg-bg-card border border-bg-border rounded-2xl overflow-hidden card-hover group"
             >
               <div className="px-5 py-4 border-b border-bg-line flex items-center justify-between">
                 <span className="font-semibold text-text-primary group-hover:text-accent-primary transition-colors">

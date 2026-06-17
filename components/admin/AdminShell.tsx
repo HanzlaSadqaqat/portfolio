@@ -46,7 +46,7 @@ export default function AdminShell({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-bg-soft text-text-primary flex font-sans">
       {/* Sidebar */}
-      <aside className="w-56 shrink-0 border-r border-bg-line bg-white hidden md:flex flex-col">
+      <aside className="w-56 shrink-0 border-r border-bg-line bg-bg-card hidden md:flex flex-col">
         <div className="px-5 py-5 border-b border-bg-line">
           <span className="font-semibold text-text-primary">Admin</span>
         </div>

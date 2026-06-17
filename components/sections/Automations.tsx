@@ -24,7 +24,7 @@ export default function Automations({ automations }: { automations: Automation[]
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-white border border-bg-border rounded-2xl p-6 md:p-7 card-hover"
+              className="bg-bg-card border border-bg-border rounded-2xl p-6 md:p-7 card-hover"
             >
               <div className="flex items-center gap-3 mb-5">
                 <span className="w-9 h-9 rounded-full bg-accent-yellow/10 flex items-center justify-center shrink-0">

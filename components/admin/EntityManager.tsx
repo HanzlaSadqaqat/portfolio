@@ -178,7 +178,7 @@ export default function EntityManager({
 
       {draft && (
         <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-          <div className="w-full max-w-lg max-h-[85vh] overflow-y-auto bg-white border border-bg-border rounded-xl p-6 shadow-lg">
+          <div className="w-full max-w-lg max-h-[85vh] overflow-y-auto bg-bg-card border border-bg-border rounded-xl p-6 shadow-lg">
             <div className="flex items-center justify-between mb-5">
               <h2 className="font-semibold text-text-primary">
                 {isNew ? "Add" : "Edit"} {pageTitle.toLowerCase()}

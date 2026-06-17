@@ -48,7 +48,7 @@ export default function Resume({
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="relative"
               >
-                <span className="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-accent-primary" />
+                <span className="absolute -left-[33px] top-1.5 w-3 h-3 rounded-full bg-bg border-2 border-accent-primary" />
                 <div className="flex items-baseline justify-between flex-wrap gap-2 mb-1">
                   <h3 className="text-base md:text-lg font-semibold text-text-primary">{job.role}</h3>
                   <span className="text-xs text-text-dim">{job.period}</span>

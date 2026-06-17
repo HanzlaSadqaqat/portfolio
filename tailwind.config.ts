@@ -5,24 +5,25 @@ const config: Config = {
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         bg: {
-          DEFAULT: "#ffffff",
-          soft: "#f8fafc",
-          card: "#ffffff",
-          line: "#e5e7eb",
-          border: "#e2e8f0",
+          DEFAULT: "rgb(var(--bg) / <alpha-value>)",
+          soft: "rgb(var(--bg-soft) / <alpha-value>)",
+          card: "rgb(var(--bg-card) / <alpha-value>)",
+          line: "rgb(var(--bg-line) / <alpha-value>)",
+          border: "rgb(var(--bg-border) / <alpha-value>)",
         },
         text: {
-          primary: "#0f172a",
-          secondary: "#475569",
-          muted: "#64748b",
-          dim: "#94a3b8",
+          primary: "rgb(var(--text-primary) / <alpha-value>)",
+          secondary: "rgb(var(--text-secondary) / <alpha-value>)",
+          muted: "rgb(var(--text-muted) / <alpha-value>)",
+          dim: "rgb(var(--text-dim) / <alpha-value>)",
         },
         accent: {
-          primary: "#2563eb",
+          primary: "rgb(var(--accent-primary) / <alpha-value>)",
           green: "#16a34a",
           cyan: "#0891b2",
           yellow: "#d97706",

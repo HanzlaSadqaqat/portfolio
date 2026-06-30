@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
+import MarqueeBanner from "@/components/MarqueeBanner";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Automations from "@/components/sections/Automations";
@@ -58,6 +59,7 @@ export default async function Home() {
     <main className="min-h-screen bg-bg text-text-primary">
       <Navbar profile={profile} />
       <Hero profile={profile} stats={stats} />
+      <MarqueeBanner />
       <About about={about} skills={skills} profile={profile} />
       <Projects projects={projects} />
       <Automations automations={automations} />

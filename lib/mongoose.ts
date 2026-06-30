@@ -22,8 +22,18 @@ global._mongoose = cached;
 export default async function connectMongo() {
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, { bufferCommands: false });
+    cached.promise = mongoose.connect(MONGODB_URI, {
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 5000,
+    });
   }
-  cached.conn = await cached.promise;
+  try {
+    cached.conn = await cached.promise;
+  } catch (err) {
+    // Clear the failed promise so the next request retries
+    cached.promise = null;
+    throw err;
+  }
   return cached.conn;
 }

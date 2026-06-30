@@ -11,6 +11,7 @@ export type Profile = {
   location: string;
   email: string;
   resumeUrl: string;
+  videoUrl?: string;
   social: {
     github: string;
     linkedin: string;

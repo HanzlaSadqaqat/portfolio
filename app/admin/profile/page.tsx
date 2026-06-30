@@ -11,6 +11,7 @@ type ProfileForm = {
   location: string;
   email: string;
   resumeUrl: string;
+  videoUrl: string;
   social: { github: string; linkedin: string; twitter: string };
 };
 
@@ -22,6 +23,7 @@ const empty: ProfileForm = {
   location: "",
   email: "",
   resumeUrl: "/resume.pdf",
+  videoUrl: "",
   social: { github: "", linkedin: "", twitter: "" },
 };
 
@@ -34,7 +36,7 @@ export default function ProfilePage() {
     fetch("/api/profile")
       .then((r) => r.json())
       .then((data) => {
-        if (data && data.name) setForm({ ...empty, ...data, social: { ...empty.social, ...data.social } });
+        if (data && data.name) setForm({ ...empty, ...data, videoUrl: data.videoUrl ?? "", social: { ...empty.social, ...data.social } });
       })
       .finally(() => setLoading(false));
   }, []);
@@ -92,6 +94,20 @@ export default function ProfilePage() {
               placeholder="/resume.pdf"
             />
           </Field>
+
+          <div className="pt-2 border-t border-bg-line">
+            <div className="text-xs font-semibold text-text-muted mb-3 mt-3">Showreel / Video</div>
+            <Field label="Video URL (YouTube or direct link)">
+              <Input
+                value={form.videoUrl}
+                onChange={(e) => setForm({ ...form, videoUrl: e.target.value })}
+                placeholder="https://www.youtube.com/watch?v=... or leave blank to hide"
+              />
+            </Field>
+            <p className="text-xs text-text-dim mt-1.5">
+              When set, a &quot;Watch Showreel&quot; button appears in the hero and the video auto-plays once per visitor session.
+            </p>
+          </div>
 
           <div className="pt-2 border-t border-bg-line">
             <div className="text-xs font-semibold text-text-muted mb-3 mt-3">Social links</div>

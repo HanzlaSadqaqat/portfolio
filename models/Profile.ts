@@ -8,6 +8,7 @@ export interface IProfile extends Document {
   location: string;
   email: string;
   resumeUrl: string;
+  videoUrl?: string;
   social: {
     github: string;
     linkedin: string;
@@ -23,6 +24,7 @@ const ProfileSchema = new Schema<IProfile>({
   location: { type: String, required: true },
   email: { type: String, required: true },
   resumeUrl: { type: String, default: "/resume.pdf" },
+  videoUrl: { type: String, default: "" },
   social: {
     github: { type: String, default: "" },
     linkedin: { type: String, default: "" },

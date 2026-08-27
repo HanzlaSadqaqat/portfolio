@@ -67,6 +67,14 @@ export const getBlogPosts = () =>
     return docs.length ? JSON.parse(JSON.stringify(docs)) : defaultBlogPosts;
   }, defaultBlogPosts as any);
 
+export const getBlogPostBySlug = (slug: string) =>
+  safe(async () => {
+    const doc = await BlogPost.findOne({ slug }).lean<IBlogPost | null>();
+    return doc
+      ? JSON.parse(JSON.stringify(doc))
+      : defaultBlogPosts.find((p) => p.slug === slug) ?? null;
+  }, defaultBlogPosts.find((p) => p.slug === slug) ?? null);
+
 export const getExperience = () =>
   safe(async () => {
     const docs = await Experience.find({}).sort({ order: 1 }).lean<IExperience[]>();

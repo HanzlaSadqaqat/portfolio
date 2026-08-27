@@ -2,21 +2,27 @@ import mongoose, { Schema, Document } from "mongoose";
 
 export interface IBlogPost extends Document {
   title: string;
+  slug: string;
   excerpt: string;
+  content: string;
   date: string;
   readTime: string;
-  url: string;
   tags: string[];
+  coverImage?: string;
+  metaDescription?: string;
   order: number;
 }
 
 const BlogPostSchema = new Schema<IBlogPost>({
   title: { type: String, required: true },
+  slug: { type: String, required: true, unique: true },
   excerpt: { type: String, required: true },
+  content: { type: String, required: true },
   date: { type: String, required: true },
   readTime: { type: String, required: true },
-  url: { type: String, default: "#" },
   tags: [{ type: String }],
+  coverImage: { type: String },
+  metaDescription: { type: String },
   order: { type: Number, default: 0 },
 });
 

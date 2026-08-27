@@ -8,11 +8,11 @@ import Container from "@/components/ui/Container";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const sections = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Automations", href: "#automations" },
-  { label: "Blog", href: "#blog" },
-  { label: "Resume", href: "#resume" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Automations", href: "/#automations" },
+  { label: "Blog", href: "/blog" },
+  { label: "Resume", href: "/#resume" },
 ];
 
 export default function Navbar({ profile }: { profile: Profile }) {
@@ -44,7 +44,7 @@ export default function Navbar({ profile }: { profile: Profile }) {
 
       <Container className="py-4 flex items-center justify-between">
         <motion.a
-          href="#top"
+          href="/"
           className="text-text-primary font-semibold text-lg"
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -79,7 +79,7 @@ export default function Navbar({ profile }: { profile: Profile }) {
         >
           <ThemeToggle />
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-accent-primary text-white text-sm font-medium rounded-full hover:bg-accent-primary/90 transition"
           >
             Let&apos;s Talk <ArrowRight size={14} />
@@ -119,7 +119,7 @@ export default function Navbar({ profile }: { profile: Profile }) {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setOpen(false)}
               className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-accent-primary text-white font-medium rounded-full mt-1"
             >

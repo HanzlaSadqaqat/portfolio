@@ -7,6 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const profile = await getProfile();
   const title = `${profile.name} — ${profile.role}`;
   return {
+    metadataBase: new URL(process.env.NEXTAUTH_URL || "http://localhost:3000"),
     title,
     description: profile.tagline,
     keywords: ["MERN", "Next.js", "AI automation", "OpenAI", "LangChain", "Node.js", "MongoDB"],

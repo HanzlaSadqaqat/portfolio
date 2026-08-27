@@ -13,6 +13,7 @@ export interface FieldConfig {
   options?: string[];
   placeholder?: string;
   required?: boolean;
+  rows?: number;
 }
 
 type Item = Record<string, any>;
@@ -192,7 +193,7 @@ export default function EntityManager({
                 <Field key={f.name} label={capitalize(f.label)}>
                   {f.type === "textarea" ? (
                     <TextArea
-                      rows={3}
+                      rows={f.rows ?? 3}
                       required={f.required}
                       placeholder={f.placeholder}
                       value={draft[f.name] ?? ""}

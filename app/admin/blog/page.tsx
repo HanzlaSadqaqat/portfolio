@@ -28,7 +28,12 @@ export default function BlogAdminPage() {
           type: "text",
           placeholder: "leave blank to auto-generate from title",
         },
-        { name: "excerpt", label: "excerpt (shown in lists)", type: "textarea", required: true },
+        {
+          name: "excerpt",
+          label: "excerpt (shown in lists)",
+          type: "textarea",
+          required: true,
+        },
         {
           name: "content",
           label: "content (markdown supported)",
@@ -37,9 +42,25 @@ export default function BlogAdminPage() {
           rows: 16,
           placeholder: "## Heading\n\nWrite the full post here in Markdown...",
         },
-        { name: "date", label: "date", type: "text", required: true, placeholder: "2025-09-12" },
-        { name: "tags", label: "tags", type: "tags", placeholder: "AI, RAG, LangChain" },
-        { name: "coverImage", label: "cover image url (for previews/SEO)", type: "url", placeholder: "https://..." },
+        {
+          name: "date",
+          label: "date",
+          type: "text",
+          required: true,
+          placeholder: "2025-09-12",
+        },
+        {
+          name: "tags",
+          label: "tags",
+          type: "tags",
+          placeholder: "AI, RAG, LangChain",
+        },
+        {
+          name: "coverImage",
+          label: "cover image url (for previews/SEO)",
+          type: "url",
+          placeholder: "https://...",
+        },
         {
           name: "metaDescription",
           label: "SEO description (falls back to excerpt)",

@@ -14,7 +14,11 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         className="group flex items-start gap-4 p-5 bg-bg-card border border-bg-border rounded-2xl"
       >
         <div className="text-xs text-text-dim pt-1 shrink-0 hidden sm:block w-24">
-          {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+          {new Date(post.date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })}
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-baseline justify-between gap-3 mb-1.5">
@@ -26,12 +30,16 @@ export default function BlogCard({ post }: { post: BlogPost }) {
               className="text-text-muted group-hover:text-accent-primary transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"
             />
           </div>
-          <p className="text-sm text-text-secondary leading-relaxed mb-3">{post.excerpt}</p>
+          <p className="text-sm text-text-secondary leading-relaxed mb-3">
+            {post.excerpt}
+          </p>
           <div className="flex items-center gap-3 text-xs flex-wrap">
             {post.tags.map((tag, ti) => (
               <span key={tag} className="text-accent-primary">
                 {tag}
-                {ti < post.tags.length - 1 && <span className="text-text-dim ml-2">·</span>}
+                {ti < post.tags.length - 1 && (
+                  <span className="text-text-dim ml-2">·</span>
+                )}
               </span>
             ))}
           </div>

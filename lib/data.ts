@@ -58,10 +58,37 @@ export type SkillGroup = {
 };
 
 export const skills: SkillGroup[] = [
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind", "Redux", "Framer Motion"] },
-  { category: "Backend", items: ["Node.js", "Express", "MongoDB", "PostgreSQL", "Prisma", "REST", "GraphQL"] },
-  { category: "AI / Automation", items: ["OpenAI", "LangChain", "Pinecone", "n8n", "Make", "Zapier", "RAG"] },
-  { category: "DevOps", items: ["Docker", "Vercel", "AWS", "GitHub Actions", "Linux"] },
+  {
+    category: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Redux",
+      "Framer Motion",
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "PostgreSQL",
+      "Prisma",
+      "REST",
+      "GraphQL",
+    ],
+  },
+  {
+    category: "AI / Automation",
+    items: ["OpenAI", "LangChain", "Pinecone", "n8n", "Make", "Zapier", "RAG"],
+  },
+  {
+    category: "DevOps",
+    items: ["Docker", "Vercel", "AWS", "GitHub Actions", "Linux"],
+  },
 ];
 
 export type Project = {
@@ -76,7 +103,8 @@ export type Project = {
 export const projects: Project[] = [
   {
     name: "inbox-ai",
-    description: "GPT-powered email triage. Reads Gmail, classifies, summarizes, drops Slack alerts for high-priority threads.",
+    description:
+      "GPT-powered email triage. Reads Gmail, classifies, summarizes, drops Slack alerts for high-priority threads.",
     tech: ["Node", "OpenAI", "Gmail API", "MongoDB"],
     status: "live",
     github: "https://github.com/yourname/inbox-ai",
@@ -84,14 +112,16 @@ export const projects: Project[] = [
   },
   {
     name: "shopflow",
-    description: "MERN e-commerce dashboard with Stripe payments, inventory tracking, and analytics. JWT auth, role-based access.",
+    description:
+      "MERN e-commerce dashboard with Stripe payments, inventory tracking, and analytics. JWT auth, role-based access.",
     tech: ["React", "Express", "MongoDB", "Stripe"],
     status: "beta",
     github: "https://github.com/yourname/shopflow",
   },
   {
     name: "docu-rag",
-    description: "Retrieval-augmented chatbot for PDF knowledge bases. Pinecone vector store, streaming responses, citation UI.",
+    description:
+      "Retrieval-augmented chatbot for PDF knowledge bases. Pinecone vector store, streaming responses, citation UI.",
     tech: ["Next.js", "LangChain", "Pinecone", "OpenAI"],
     status: "live",
     github: "https://github.com/yourname/docu-rag",
@@ -99,7 +129,8 @@ export const projects: Project[] = [
   },
   {
     name: "habit-loop",
-    description: "Mobile-first habit tracker with streak analytics, dark mode, and PWA install. Offline-first via service workers.",
+    description:
+      "Mobile-first habit tracker with streak analytics, dark mode, and PWA install. Offline-first via service workers.",
     tech: ["React", "Node", "MongoDB", "Chart.js"],
     status: "live",
     github: "https://github.com/yourname/habit-loop",
@@ -117,22 +148,26 @@ export type Automation = {
 export const automations: Automation[] = [
   {
     title: "Lead Enrichment Pipeline",
-    problem: "Sales team spent 6+ hours/week manually researching leads on LinkedIn.",
-    solution: "Built an n8n + OpenAI pipeline that pulls leads from a CRM, enriches with Apollo, summarizes the company, and writes a first-touch email draft.",
+    problem:
+      "Sales team spent 6+ hours/week manually researching leads on LinkedIn.",
+    solution:
+      "Built an n8n + OpenAI pipeline that pulls leads from a CRM, enriches with Apollo, summarizes the company, and writes a first-touch email draft.",
     stack: ["n8n", "OpenAI", "Apollo.io", "HubSpot"],
     impact: "~5 hours/week saved per rep; reply rate up 23%.",
   },
   {
     title: "Support Ticket Auto-Triage",
     problem: "Inbox of 200+ daily tickets, slow first-response times.",
-    solution: "LangChain classifier + RAG over the help-center docs. Tickets are tagged, routed, and answered with a draft reply that the agent edits.",
+    solution:
+      "LangChain classifier + RAG over the help-center docs. Tickets are tagged, routed, and answered with a draft reply that the agent edits.",
     stack: ["LangChain", "Pinecone", "Zendesk API", "OpenAI"],
     impact: "First-response time cut from 4h to 12 min.",
   },
   {
     title: "Invoice OCR + Sheets Sync",
     problem: "Finance was manually keying invoices into Google Sheets.",
-    solution: "Make scenario watches a Drive folder, runs GPT-4o vision OCR, normalizes fields, and appends rows with validation.",
+    solution:
+      "Make scenario watches a Drive folder, runs GPT-4o vision OCR, normalizes fields, and appends rows with validation.",
     stack: ["Make", "GPT-4o", "Google Drive", "Sheets"],
     impact: "~12 hours/month reclaimed; 99% extraction accuracy.",
   },
@@ -153,8 +188,10 @@ export const blogPosts: BlogPost[] = [
   {
     title: "Building a RAG system that actually answers questions",
     slug: "building-a-rag-system-that-actually-answers-questions",
-    excerpt: "Most RAG demos look great. Most production RAG systems hallucinate. Here's what changed when I shipped mine.",
-    metaDescription: "A practical breakdown of the chunking, retrieval, and re-ranking changes that took a RAG pipeline from demo-quality to production-quality.",
+    excerpt:
+      "Most RAG demos look great. Most production RAG systems hallucinate. Here's what changed when I shipped mine.",
+    metaDescription:
+      "A practical breakdown of the chunking, retrieval, and re-ranking changes that took a RAG pipeline from demo-quality to production-quality.",
     content: `Most RAG demos look great. Feed it a PDF, ask a question, get a clean answer with a citation. Ship it to production with real documents and real users, and it falls apart — vague answers, confident hallucinations, retrieval that misses the one paragraph that actually mattered.
 
 Here's what changed when I moved mine from demo to production.
@@ -186,8 +223,10 @@ None of this is exotic. It's chunking, re-ranking, and permission to say "I don'
   {
     title: "MongoDB schema patterns I wish I knew at 22",
     slug: "mongodb-schema-patterns-i-wish-i-knew-at-22",
-    excerpt: "Embedding vs referencing, when to denormalize, and the mistake I keep seeing in MERN starter repos.",
-    metaDescription: "Embedding vs referencing, denormalization tradeoffs, and the schema mistake that shows up in almost every MERN starter repo.",
+    excerpt:
+      "Embedding vs referencing, when to denormalize, and the mistake I keep seeing in MERN starter repos.",
+    metaDescription:
+      "Embedding vs referencing, denormalization tradeoffs, and the schema mistake that shows up in almost every MERN starter repo.",
     content: `Every MERN tutorial teaches you to model relationships like you would in Postgres — a collection per entity, references everywhere, populate() on every read. It works at demo scale. It falls over the moment you have real traffic.
 
 ## Embed when you read together, reference when you write independently
@@ -216,8 +255,10 @@ The default \`_id\` index is not a query plan. Every field you filter or sort on
   {
     title: "n8n vs Make vs Zapier: choosing an automation tool in 2025",
     slug: "n8n-vs-make-vs-zapier-choosing-an-automation-tool-in-2025",
-    excerpt: "A decision tree based on 30+ pipelines I've shipped — what each tool is actually good at.",
-    metaDescription: "A practical decision tree for choosing between n8n, Make, and Zapier, based on 30+ automation pipelines shipped for real clients.",
+    excerpt:
+      "A decision tree based on 30+ pipelines I've shipped — what each tool is actually good at.",
+    metaDescription:
+      "A practical decision tree for choosing between n8n, Make, and Zapier, based on 30+ automation pipelines shipped for real clients.",
     content: `Every "best automation tool" article is a feature-comparison table. That's not how I pick — I pick based on who's maintaining the pipeline after I hand it off, and what happens when a step fails at 2am.
 
 ## Zapier — when the client will maintain it themselves

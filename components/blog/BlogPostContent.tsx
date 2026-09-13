@@ -1,6 +1,5 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Clock } from "lucide-react";
 import type { BlogPost } from "@/lib/data";
 
 const mdComponents = {
@@ -49,10 +48,6 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
       )}
       <div className="flex items-center gap-3 text-xs text-text-muted mb-3">
         <time dateTime={post.date}>{formatDate(post.date)}</time>
-        <span>·</span>
-        <span className="flex items-center gap-1">
-          <Clock size={11} /> {post.readTime}
-        </span>
       </div>
       <h1 className="text-2xl md:text-4xl font-bold text-text-primary mb-4 leading-tight">{post.title}</h1>
       <div className="flex flex-wrap gap-2 mb-8">

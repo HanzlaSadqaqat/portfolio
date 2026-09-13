@@ -16,7 +16,6 @@ export default function BlogAdminPage() {
         excerpt: "",
         content: "",
         date: "",
-        readTime: "",
         tags: [],
         coverImage: "",
         metaDescription: "",
@@ -39,7 +38,6 @@ export default function BlogAdminPage() {
           placeholder: "## Heading\n\nWrite the full post here in Markdown...",
         },
         { name: "date", label: "date", type: "text", required: true, placeholder: "2025-09-12" },
-        { name: "readTime", label: "read-time", type: "text", required: true, placeholder: "8 min" },
         { name: "tags", label: "tags", type: "tags", placeholder: "AI, RAG, LangChain" },
         { name: "coverImage", label: "cover image url (for previews/SEO)", type: "url", placeholder: "https://..." },
         {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Clock } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { BlogPost } from "@/lib/data";
 import { ease } from "@/components/ui/AnimationWrappers";
 
@@ -28,10 +28,6 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           </div>
           <p className="text-sm text-text-secondary leading-relaxed mb-3">{post.excerpt}</p>
           <div className="flex items-center gap-3 text-xs flex-wrap">
-            <span className="text-text-muted flex items-center gap-1">
-              <Clock size={11} /> {post.readTime}
-            </span>
-            <span className="text-text-dim">·</span>
             {post.tags.map((tag, ti) => (
               <span key={tag} className="text-accent-primary">
                 {tag}

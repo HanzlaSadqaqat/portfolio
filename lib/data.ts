@@ -144,7 +144,6 @@ export type BlogPost = {
   excerpt: string;
   content: string;
   date: string;
-  readTime: string;
   tags: string[];
   coverImage?: string;
   metaDescription?: string;
@@ -182,7 +181,6 @@ The prompt template mattered less than the instruction to *not answer* when the 
 
 None of this is exotic. It's chunking, re-ranking, and permission to say "I don't know" — and it's the difference between a demo and something people can trust.`,
     date: "2025-09-12",
-    readTime: "8 min",
     tags: ["AI", "RAG", "LangChain"],
   },
   {
@@ -213,7 +211,6 @@ Yes, you now update it in two places when a user changes their name. That's a so
 
 The default \`_id\` index is not a query plan. Every field you filter or sort on in a hot path needs its own index, and compound indexes need to match your actual query shape, field order included. I didn't take this seriously until a collection crossed a few hundred thousand documents and a "fast" endpoint started taking two seconds. Explain plans aren't glamorous, but they would have caught it in five minutes.`,
     date: "2025-07-04",
-    readTime: "6 min",
     tags: ["MongoDB", "MERN"],
   },
   {
@@ -243,7 +240,6 @@ n8n is the only one of the three you can self-host, which matters when data resi
 
 I've shipped all three in production. The tool rarely fails the client — picking the wrong one for who has to live with it afterward is what fails.`,
     date: "2025-05-20",
-    readTime: "10 min",
     tags: ["Automation", "n8n", "Make"],
   },
 ];

@@ -10,6 +10,7 @@ import Automation, { IAutomation } from "@/models/Automation";
 import BlogPost, { IBlogPost } from "@/models/BlogPost";
 import Experience, { IExperience } from "@/models/Experience";
 import Education, { IEducation } from "@/models/Education";
+import { slugify } from "./slugify";
 import {
   profile as defaultProfile,
   about as defaultAbout,
@@ -61,19 +62,28 @@ export const getAutomations = () =>
     return docs.length ? JSON.parse(JSON.stringify(docs)) : defaultAutomations;
   }, defaultAutomations as any);
 
+// Posts created before slug/content existed on the schema won't have them
+// stored — derive a slug from the title and fall back content to the excerpt
+// so old posts still open instead of 404ing on /blog/undefined.
+function normalizeBlogPost(post: any) {
+  return {
+    ...post,
+    slug: post.slug || slugify(post.title || ""),
+    content: post.content || post.excerpt || "",
+  };
+}
+
 export const getBlogPosts = () =>
   safe(async () => {
     const docs = await BlogPost.find({}).sort({ order: 1 }).lean<IBlogPost[]>();
-    return docs.length ? JSON.parse(JSON.stringify(docs)) : defaultBlogPosts;
-  }, defaultBlogPosts as any);
+    const list = docs.length ? JSON.parse(JSON.stringify(docs)) : defaultBlogPosts;
+    return list.map(normalizeBlogPost);
+  }, defaultBlogPosts.map(normalizeBlogPost) as any);
 
-export const getBlogPostBySlug = (slug: string) =>
-  safe(async () => {
-    const doc = await BlogPost.findOne({ slug }).lean<IBlogPost | null>();
-    return doc
-      ? JSON.parse(JSON.stringify(doc))
-      : defaultBlogPosts.find((p) => p.slug === slug) ?? null;
-  }, defaultBlogPosts.find((p) => p.slug === slug) ?? null);
+export const getBlogPostBySlug = async (slug: string) => {
+  const posts = await getBlogPosts();
+  return posts.find((p: any) => p.slug === slug) ?? null;
+};
 
 export const getExperience = () =>
   safe(async () => {

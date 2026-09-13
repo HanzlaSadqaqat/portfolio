@@ -6,7 +6,6 @@ export interface IBlogPost extends Document {
   excerpt: string;
   content: string;
   date: string;
-  readTime: string;
   tags: string[];
   coverImage?: string;
   metaDescription?: string;
@@ -19,7 +18,6 @@ const BlogPostSchema = new Schema<IBlogPost>({
   excerpt: { type: String, required: true },
   content: { type: String, required: true },
   date: { type: String, required: true },
-  readTime: { type: String, required: true },
   tags: [{ type: String }],
   coverImage: { type: String },
   metaDescription: { type: String },
